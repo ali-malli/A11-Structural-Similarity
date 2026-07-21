@@ -1,18 +1,6 @@
 #!/usr/bin/env python3
 """
-Cluster high-similarity sites and write Figure-6-like PyMOL selections.
-
-Because the A11 paper does not report the exact cutoff/linkage used to get
-23 high-similarity sites, this script sweeps score thresholds and chooses the
-threshold that gives a selected set closest to --target_n.
-
-Selected high-similarity sites are nodes in graph components that:
-  - have edges score >= threshold
-  - contain sites from at least --min_pdbs structures
-  - have at least --min_component_size nodes
-
-Then one display site per PDB is chosen as the site with the highest average
-similarity to the selected high-similarity set, excluding same-PDB sites by default.
+Cluster high-similarity sites and write Figure-6-like PyMOL selections (from Yoshiike et al, 2008).
 """
 
 import argparse
@@ -66,7 +54,6 @@ def choose_threshold(S, pdb_ids, target_n, min_pdbs, min_component_size):
     vals = vals[vals > 0]
     if len(vals) == 0:
         raise ValueError("No positive pairwise similarities found.")
-    # Sweep unique-ish thresholds from high to low.
     qs = np.linspace(0.99, 0.50, 200)
     thresholds = sorted(set(np.quantile(vals, qs)), reverse=True)
     best = None
