@@ -18,6 +18,7 @@ Detect and compare solvent-exposed β-sheet surface patches in A11-positive β-g
 7. Identify recurrent high-similarity β-sheet motifs.
 
 ## Reproducing the analysis
+```bash
 conda env create -f environment.yml
 conda activate bgl-a11
 
@@ -40,7 +41,7 @@ python scripts/03_cluster_and_write_pymol.py \
   --out_dir results/03_selected_sites \
   --pdb_dir data/cleaned_pdbs \
   --beta_codes B,E
-
+```
 ## Outputs
 describe each CSV/PML file.
 
