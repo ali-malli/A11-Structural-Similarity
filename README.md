@@ -52,7 +52,3 @@ e3235. https://www.ncbi.nlm.nih.gov/pubmed/18800165
 2. Gorelov, S.; Titov, A.; Tolicheva, O.; Konevega, A.; Shvetsov, A. DSSP in
 GROMACS: Tool for Defining Secondary Structures of Proteins in Trajectories. J Chem
 Inf Model 2024, 64 (9), 3593-3598. https://www.ncbi.nlm.nih.gov/pubmed/38655711
-(105) Pettersen, E. F.; Goddard, T. D.; Huang, C. C.; Meng, E. C.; Couch, G. S.; Croll, T.
-I.; Morris, J. H.; Ferrin, T. E. UCSF ChimeraX: Structure visualization for researchers,
-educators, and developers. Protein Sci 2021, 30 (1), 70-82.
-https://www.ncbi.nlm.nih.gov/pubmed/32881101
