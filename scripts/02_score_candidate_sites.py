@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Score candidate A11 sites using six-dimensional PATTY-style vectors,
-local physicochemical environments, Tanimoto coefficients, and one of
-several patch-alignment strategies.
+local physicochemical environments, Tanimoto coefficients, and a patch-alignment strategies.
 
 Output:
   site_similarity_matrix.csv
@@ -274,7 +273,6 @@ def triplet_aligner(site_a, site_b, match_dist, triplet_tol, max_triplets, rng):
                 continue
             if np.max(np.abs(dist_a - dist_b)) > triplet_tol:
                 continue
-            # Try all permutations of B triplet that preserve compatibility.
             for perm in itertools.permutations(tb):
                 ok = all(compatible(site_a["vecs"][ia], site_b["vecs"][ib]) for ia, ib in zip(ta, perm))
                 if not ok:
@@ -303,7 +301,6 @@ def main():
     pair_rows = []
     for i in range(n):
         for j in range(i + 1, n):
-            # Usually we only care cross-structure similarity. Still score all pairs.
             if args.aligner == "none":
                 score, nmatch = center_aligner(sites[i], sites[j], args.match_dist)
             elif args.aligner == "icp":
@@ -322,8 +319,7 @@ def main():
     sim_df = pd.DataFrame(S, index=site_ids, columns=site_ids)
     sim_df.to_csv(out_dir / "site_similarity_matrix.csv")
     pd.DataFrame(pair_rows).to_csv(out_dir / "site_pair_scores.csv", index=False)
-
-    # Save prepared metadata needed downstream, excluding huge arrays where possible.
+  
     meta = pd.DataFrame([{
         "site_id": s["site_id"], "pdb_id": s["pdb_id"], "n_atoms": len(s["coords"])
     } for s in sites])
