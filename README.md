@@ -42,8 +42,6 @@ python scripts/03_cluster_and_write_pymol.py \
   --pdb_dir data/cleaned_pdbs \
   --beta_codes B,E
 ```
-## Outputs
-describe each CSV/PML file.
 
 ## Citation
 1. Yoshiike, Y.; Minai, R.; Matsuo, Y.; Chen, Y. R.; Kimura, T.; Takashima, A. Amyloid
